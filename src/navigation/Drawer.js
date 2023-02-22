@@ -20,10 +20,13 @@ function DrawerNavigator() {
         },
         headerStyle: {
           backgroundColor: COLORS.BLACK,
+          borderBottomColor: COLORS.BLACK,
+          shadowColor: COLORS.BLACK,
+          shadowOpacity: 0,
         },
         drawerActiveBackgroundColor: COLORS.PRIMARY,
         drawerStyle: {
-          backgroundColor: COLORS.BLACK,
+          backgroundColor: COLORS.BLACK_LIGHT,
         },
         drawerActiveTintColor: COLORS.TEXT,
         drawerInactiveTintColor: COLORS.TEXT_LIGHT,
