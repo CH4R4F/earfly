@@ -3,7 +3,7 @@ import React from 'react';
 
 const Playlists = () => {
   return (
-    <View>
+    <View className="bg-black-light flex-1">
       <Text>Playlists</Text>
     </View>
   );

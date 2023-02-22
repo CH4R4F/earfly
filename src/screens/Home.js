@@ -1,27 +1,15 @@
-import {View, Text, StyleSheet, Button} from 'react-native';
 import React from 'react';
+import {View, Text} from 'react-native';
+import Search from '../components/Search';
+import HomeNavigation from '../navigation/HomeNavigation';
 
-const Home = ({navigation}) => {
+const Home = () => {
   return (
-    <View style={styles.main}>
-      <Text>
-        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      </Text>
-      <Button
-        title="click me"
-        onPress={() => navigation.navigate('Settings')}
-      />
+    <View className="bg-black flex-1">
+      <Search />
+      <HomeNavigation />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-});
 
 export default Home;
