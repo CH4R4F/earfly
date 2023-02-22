@@ -11,6 +11,9 @@ module.exports = {
         black: '#000000',
         'black-light': '#222',
       },
+      fontFamily: {
+        roboto: ['Roboto-Thin', 'sans-serif'],
+      },
     },
   },
   plugins: [],
