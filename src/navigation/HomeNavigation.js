@@ -1,6 +1,6 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {Songs, Playlists, Home} from '../screens';
+import {Songs, Playlists} from '../screens';
 import {ROUTES, COLORS} from '../constants';
 
 const Tab = createMaterialTopTabNavigator();
@@ -23,7 +23,6 @@ function HomeNavigation() {
           marginTop: 20,
         },
       }}>
-      {/* <Tab.Screen name={ROUTES.HOME} component={Home} /> */}
       <Tab.Screen name={ROUTES.SONGS} component={Songs} />
       <Tab.Screen name={ROUTES.PLAYLISTS} component={Playlists} />
     </Tab.Navigator>

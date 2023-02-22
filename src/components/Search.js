@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
+import {View, TextInput} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {COLORS} from '../constants';
 
