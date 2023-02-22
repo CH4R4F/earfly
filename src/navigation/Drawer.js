@@ -2,7 +2,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {ROUTES, COLORS} from '../constants/';
-import {Home, Songs, Playlists, Settings} from '../screens/index';
+import {Home, Settings} from '../screens/index';
 import CustomDrawer from '../components/CustomDrawer';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -48,32 +48,6 @@ function DrawerNavigator() {
         }}
         name={ROUTES.HOME}
         component={Home}
-      />
-      <Drawer.Screen
-        options={{
-          drawerIcon: ({focused, size}) => (
-            <Icon
-              name={focused ? 'musical-notes' : 'musical-notes-outline'}
-              size={size}
-              color={focused ? COLORS.TEXT : COLORS.TEXT_LIGHT}
-            />
-          ),
-        }}
-        name={ROUTES.SONGS}
-        component={Songs}
-      />
-      <Drawer.Screen
-        options={{
-          drawerIcon: ({focused, size}) => (
-            <Icon
-              name={focused ? 'list' : 'list-outline'}
-              size={size}
-              color={focused ? COLORS.TEXT : COLORS.TEXT_LIGHT}
-            />
-          ),
-        }}
-        name={ROUTES.PLAYLISTS}
-        component={Playlists}
       />
       <Drawer.Screen
         options={{
