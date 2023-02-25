@@ -9,14 +9,7 @@ async function requestExternalStoragePermission() {
         message: 'This app needs access to your storage to download Music',
       },
     );
-    console.log(granted);
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log('Storage Permission Granted.');
-      return true;
-    } else {
-      console.log('Storage Permission Denied.');
-      return false;
-    }
+    return PermissionsAndroid.RESULTS.GRANTED;
   } catch (err) {
     console.warn(err);
   }
