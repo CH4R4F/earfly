@@ -4,6 +4,7 @@ import requestExternalStoragePermission from '../utils/permissions';
 import getMusics from '../utils/getMusics';
 import {RecyclerListView, DataProvider, LayoutProvider} from 'recyclerlistview';
 import SongRow from '../components/SongRow';
+import OptionModal from '../components/OptionsModal';
 
 const dataProvider = new DataProvider((r1, r2) => {
   return r1 !== r2;
@@ -19,14 +20,10 @@ const layoutProvider = new LayoutProvider(
   },
 );
 
-const rowRenderer = (type, data) => {
-  const {path, metadata} = data;
-  const title = metadata.title || path.split('/').pop();
-  return <SongRow title={title} duration={metadata.duration} />;
-};
-
 const Songs = () => {
   const [songs, setSongs] = useState([]);
+  const [optionSelected, setOptionSelected] = useState({});
+  const [optionModalVisible, setOptionModalVisible] = useState(false);
 
   const getMusicFiles = async () => {
     const hasPermission = await requestExternalStoragePermission();
@@ -34,6 +31,24 @@ const Songs = () => {
       const musicFiles = await getMusics();
       setSongs(musicFiles);
     }
+  };
+
+  const rowRenderer = (type, data) => {
+    const {path, metadata} = data;
+    const title = metadata.title || path.split('/').pop();
+    return (
+      <SongRow
+        onOptionsPress={() => {
+          setOptionSelected({
+            title,
+            path,
+          });
+          setOptionModalVisible(true);
+        }}
+        title={title}
+        duration={metadata.duration}
+      />
+    );
   };
 
   useEffect(() => {
@@ -49,6 +64,13 @@ const Songs = () => {
           rowRenderer={rowRenderer}
         />
       )}
+      <OptionModal
+        onClose={() => setOptionModalVisible(false)}
+        visible={optionModalVisible}
+        title={optionSelected?.title}
+        onPlayPress={() => console.log('play')}
+        onPlayListPress={() => console.log('playlist')}
+      />
     </View>
   );
 };
