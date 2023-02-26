@@ -41,7 +41,7 @@ const Songs = () => {
   }, []);
 
   return (
-    <View className="bg-black-light flex-1 space-y-3">
+    <View className="bg-black-light flex-1 space-y-3 py-2">
       {songs.length > 0 && (
         <RecyclerListView
           dataProvider={dataProvider.cloneWithRows(songs)}
