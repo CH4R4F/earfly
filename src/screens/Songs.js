@@ -1,11 +1,13 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {View, Text, Dimensions} from 'react-native';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useEffect, useState, useContext} from 'react';
+import {View, Dimensions} from 'react-native';
 import requestExternalStoragePermission from '../utils/permissions';
 import getMusics from '../utils/getMusics';
 import {RecyclerListView, DataProvider, LayoutProvider} from 'recyclerlistview';
 import SongRow from '../components/SongRow';
 import OptionModal from '../components/OptionsModal';
 import Sound from 'react-native-sound';
+import {AudioContext} from '../contexts/AudioProvider';
 
 // data parovider of recyclerlistview
 const dataProvider = new DataProvider((r1, r2) => {
@@ -24,10 +26,9 @@ const layoutProvider = new LayoutProvider(
 );
 
 const Songs = () => {
-  const [songs, setSongs] = useState([]);
   const [optionSelected, setOptionSelected] = useState({});
   const [optionModalVisible, setOptionModalVisible] = useState(false);
-  const currentPlayedMusicRef = useRef(null);
+  const {songs, setSongs, currentPlayedMusicRef} = useContext(AudioContext);
 
   // Get Music Files after granting permission
   const getMusicFiles = async () => {
