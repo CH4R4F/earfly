@@ -15,6 +15,7 @@ const OptionModal = ({
   options,
   onPlayPress,
   onPlayListPress,
+  isPlaying,
 }) => {
   return (
     <>
@@ -36,7 +37,9 @@ const OptionModal = ({
               );
             })} */}
             <TouchableWithoutFeedback onPress={onPlayPress}>
-              <Text className="font-bold text-text-light py-2">Play</Text>
+              <Text className="font-bold text-text-light py-2">
+                {isPlaying ? 'Pause' : 'Play'}
+              </Text>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback onPress={onPlayListPress}>
               <Text className="font-bold text-text-light py-2">
