@@ -4,12 +4,19 @@ import durationToString from '../utils/duration';
 import Entypo from 'react-native-vector-icons/Entypo';
 import audioGif from '../assets/audio.gif';
 
-const SongRow = ({title, duration, onOptionsPress, playMusic, isPlaying}) => {
+const SongRow = ({
+  title,
+  duration,
+  onOptionsPress,
+  playMusic,
+  isPlaying,
+  active,
+}) => {
   return (
     <View className="bg-black p-3 rounded-md mx-2 flex-row items-center space-x-3">
       <TouchableWithoutFeedback onPress={playMusic}>
         <View className="w-10 h-10 bg-black-light rounded-full items-center justify-center ">
-          {isPlaying ? (
+          {isPlaying && active ? (
             <Image source={audioGif} className="w-10 h-10 rounded-full" />
           ) : (
             <Entypo name="controller-play" size={20} color="#fff" />

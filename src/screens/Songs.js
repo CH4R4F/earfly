@@ -46,6 +46,10 @@ const Songs = () => {
     const title = metadata.title || path.split('/').pop();
     return (
       <SongRow
+        active={
+          currentPlayedMusicRef.current?.path === path &&
+          extendedState.isPlaying
+        }
         isPlaying={extendedState.isPlaying}
         onOptionsPress={() => {
           setOptionSelected({
