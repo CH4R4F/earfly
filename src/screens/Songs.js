@@ -28,7 +28,8 @@ const layoutProvider = new LayoutProvider(
 const Songs = () => {
   const [optionSelected, setOptionSelected] = useState({});
   const [optionModalVisible, setOptionModalVisible] = useState(false);
-  const {songs, setSongs, currentPlayedMusicRef} = useContext(AudioContext);
+  const {songs, setSongs, currentPlayedMusicRef, isPlaying, setIsPlaying} =
+    useContext(AudioContext);
 
   // Get Music Files after granting permission
   const getMusicFiles = async () => {
@@ -40,11 +41,12 @@ const Songs = () => {
   };
 
   // Render each row of recyclerlistview
-  const rowRenderer = (type, data) => {
+  const rowRenderer = (type, data, index, extendedState) => {
     const {path, metadata} = data;
     const title = metadata.title || path.split('/').pop();
     return (
       <SongRow
+        isPlaying={extendedState.isPlaying}
         onOptionsPress={() => {
           setOptionSelected({
             title,
@@ -63,16 +65,18 @@ const Songs = () => {
   const playMusic = path => {
     if (currentPlayedMusicRef.current?.path === path) {
       const {playbackObj} = currentPlayedMusicRef.current;
-      console.log('playbackObj', playbackObj);
       if (playbackObj._playing) {
         playbackObj.pause();
+        setIsPlaying(false);
       } else {
         playbackObj.play();
+        setIsPlaying(true);
       }
 
       return;
     } else if (currentPlayedMusicRef.current) {
       currentPlayedMusicRef.current.playbackObj.stop();
+      setIsPlaying(false);
     }
     const playbackObj = new Sound(path, '', error => {
       if (error) {
@@ -80,6 +84,7 @@ const Songs = () => {
         return;
       }
       playbackObj.play();
+      setIsPlaying(true);
     });
     currentPlayedMusicRef.current = {
       path,
@@ -99,6 +104,7 @@ const Songs = () => {
           dataProvider={dataProvider.cloneWithRows(songs)}
           layoutProvider={layoutProvider}
           rowRenderer={rowRenderer}
+          extendedState={{isPlaying}}
         />
       )}
       <OptionModal

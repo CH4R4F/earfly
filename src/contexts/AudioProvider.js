@@ -4,9 +4,11 @@ export const AudioContext = createContext();
 const AudioProvider = ({children}) => {
   const currentPlayedMusicRef = useRef(null);
   const [songs, setSongs] = useState([]);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <AudioContext.Provider value={{songs, setSongs, currentPlayedMusicRef}}>
+    <AudioContext.Provider
+      value={{songs, setSongs, currentPlayedMusicRef, isPlaying, setIsPlaying}}>
       {children}
     </AudioContext.Provider>
   );
