@@ -6310,6 +6310,11 @@
     "react-freeze" "^1.0.0"
     "warn-once" "^0.1.0"
 
+"react-native-sound@^0.11.2":
+  "integrity" "sha512-LmGc8lgOK3qecYMVQpyHvww/C+wgT6sWeMpVbOe4NCRGC2yKd4fo4U0KBUo9PO7AqKESO3I/2GZg1/C0+bwiiA=="
+  "resolved" "https://registry.npmjs.org/react-native-sound/-/react-native-sound-0.11.2.tgz"
+  "version" "0.11.2"
+
 "react-native-splash-screen@^3.3.0":
   "integrity" "sha512-rGjt6HkoSXxMqH4SQUJ1gnPQlPJV8+J47+4yhgTIan4bVvAwJhEeJH7wWt9hXSdH4+VfwTS0GTaflj1Tw83IhA=="
   "resolved" "https://registry.npmjs.org/react-native-splash-screen/-/react-native-splash-screen-3.3.0.tgz"
@@ -6338,7 +6343,7 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native@*", "react-native@>= 0.30.0", "react-native@>=0.50.0", "react-native@>=0.57", "react-native@>=0.57.0", "react-native@0.71.3":
+"react-native@*", "react-native@>= 0.30.0", "react-native@>=0.50.0", "react-native@>=0.57", "react-native@>=0.57.0", "react-native@>=0.8.0", "react-native@0.71.3":
   "integrity" "sha512-RYJXCcQGa4NTfKiPgl92eRDUuQ6JGDnHqFEzRwJSqEx9lWvlvRRIebstJfurzPDKLQWQrvITR7aI7e09E25mLw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.71.3.tgz"
   "version" "0.71.3"
