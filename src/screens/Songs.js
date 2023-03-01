@@ -115,8 +115,12 @@ const Songs = () => {
         onClose={() => setOptionModalVisible(false)}
         visible={optionModalVisible}
         title={optionSelected?.title}
-        onPlayPress={() => console.log('play')}
+        onPlayPress={() => playMusic(optionSelected?.path)}
         onPlayListPress={() => console.log('playlist')}
+        isPlaying={
+          currentPlayedMusicRef?.current?.path === optionSelected?.path &&
+          isPlaying
+        }
       />
     </View>
   );
