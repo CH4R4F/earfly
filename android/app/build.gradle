@@ -155,6 +155,9 @@ dependencies {
 
     implementation project(':rn-fetch-blob') 
 
+    implementation("com.facebook.fresco:fresco:2.6.0")
+    implementation('com.facebook.fresco:animated-gif:2.6.0')
+
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")

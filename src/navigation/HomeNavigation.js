@@ -1,6 +1,6 @@
 import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {Songs, Playlists} from '../screens';
+import {Songs, Lyrics} from '../screens';
 import {ROUTES, COLORS} from '../constants';
 
 const Tab = createMaterialTopTabNavigator();
@@ -24,7 +24,13 @@ function HomeNavigation() {
         },
       }}>
       <Tab.Screen name={ROUTES.SONGS} component={Songs} />
-      <Tab.Screen name={ROUTES.PLAYLISTS} component={Playlists} />
+      <Tab.Screen
+        options={{
+          title: 'Lyrics',
+        }}
+        name={ROUTES.LYRICS}
+        component={Lyrics}
+      />
     </Tab.Navigator>
   );
 }
