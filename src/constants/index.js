@@ -18,6 +18,7 @@ const ROUTES = {
   PLAYLIST_DETAILS: 'PlaylistDetails',
   HOME_DRWAER: 'HomeDrawer',
   SETTINGS: 'Settings',
+  LYRICS: 'Lyrics',
 };
 
 // export
